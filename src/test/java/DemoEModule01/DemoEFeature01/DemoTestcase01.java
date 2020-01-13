@@ -1,5 +1,6 @@
 
 package DemoEModule01.DemoEFeature01;
+import pom.MhLoginPage;
 import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -69,6 +70,72 @@ public class DemoTestcase01 extends  AllActions {
         try
         {
             actions.EnterApplicationURL("http://web.meehappy.com:9090/login");
+
+            String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();
+        actions.CaptureScreenShotAtEachStep(path,methodName,screenshotOption);
+        
+            }
+        catch(Exception e)
+        {
+        String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();     
+        actions.CaptureOnFailure(path1,methodName,failScreenshotoption);
+        e.printStackTrace();
+        actions.CloseCurrentTab();
+        driver.get().quit();
+        throw e;
+        } 
+        };
+
+            @Test(priority=2)
+        public void step_2() throws Exception
+        {
+        try
+        {
+            actions.EnterData(new MhLoginPage(driver).username,"balakrishna@opaltechsolutions.com");
+
+            String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();
+        actions.CaptureScreenShotAtEachStep(path,methodName,screenshotOption);
+        
+            }
+        catch(Exception e)
+        {
+        String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();     
+        actions.CaptureOnFailure(path1,methodName,failScreenshotoption);
+        e.printStackTrace();
+        actions.CloseCurrentTab();
+        driver.get().quit();
+        throw e;
+        } 
+        };
+
+            @Test(priority=3)
+        public void step_3() throws Exception
+        {
+        try
+        {
+            actions.EnterData(new MhLoginPage(driver).password,"Opal@1234");
+
+            String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();
+        actions.CaptureScreenShotAtEachStep(path,methodName,screenshotOption);
+        
+            }
+        catch(Exception e)
+        {
+        String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();     
+        actions.CaptureOnFailure(path1,methodName,failScreenshotoption);
+        e.printStackTrace();
+        actions.CloseCurrentTab();
+        driver.get().quit();
+        throw e;
+        } 
+        };
+
+            @Test(priority=4)
+        public void step_4() throws Exception
+        {
+        try
+        {
+            actions.Click(new MhLoginPage(driver).login);
 
             String methodName=Thread.currentThread().getStackTrace()[1].getMethodName();
         actions.CaptureScreenShotAtEachStep(path,methodName,screenshotOption);
